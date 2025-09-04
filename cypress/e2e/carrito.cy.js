@@ -35,6 +35,19 @@ describe('Flujo de compra en Saucedemo', () => {
     CartPage.getCartItem().should('contain.text', 'Sauce Labs Backpack');
   });
 
+  it('Debería agregar multiples productos al carrito y verificar que se muestre el conteo correcto',()=>{
+    InventoryPage.addProductToCart('sauce-labs-backpack');
+    InventoryPage.addProductToCart('sauce-labs-bike-light');
+    InventoryPage.addProductToCart('sauce-labs-bolt-t-shirt');
+
+    // Verifica que el número en el carrito es el correcto
+    InventoryPage.getShoppingCartBadge().should('have.text', '3');
+
+    // Navega al carrito y verifica que los tres productos están ahí
+    InventoryPage.getShoppingCartLink().click();
+    CartPage.getCartItem().should('have.length', 3);
+  });
+
     //Nuevo caso de prueba eliminar producto del carrito
   it('Debería eliminar un producto del carrito y verificar que el carrito esta vacío', () => {
     const productName = 'sauce-labs-backpack';

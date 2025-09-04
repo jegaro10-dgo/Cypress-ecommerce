@@ -6,6 +6,9 @@ class InventoryPage{
     getShoppingCartBadge(){
         return cy.get('.shopping_cart_badge');
     }
+    addProductToCart(productName){
+        cy.get(`[data-test="add-to-cart-${productName}"]`).click();
+    }
     getAddToCartButton(){
         return cy.get('[data-test^="add-to-cart"]');
     }

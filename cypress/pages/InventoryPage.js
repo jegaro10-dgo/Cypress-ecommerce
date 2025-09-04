@@ -24,5 +24,14 @@ class InventoryPage{
         // Ejemplo: 'sauce-labs-backpack'
         cy.get(`#add-to-cart-${productName}`).click();
     }
+    sortProducts(option){
+        cy.get('.product_sort_container').select(option);
+    }
+    getProductNames(){
+        return cy.get('.inventory_item_name')
+    }
+    getProductPrices(){
+        return cy.get('.inventory_item_price');
+    }
 }
 export default new InventoryPage();

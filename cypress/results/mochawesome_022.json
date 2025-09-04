@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-09-03T23:50:34.068Z",
+    "end": "2025-09-03T23:50:41.247Z",
+    "duration": 7179,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "023e910b-f8cf-45f4-8a32-223e8a7c8f49",
+      "title": "",
+      "fullFile": "cypress/e2e/api-test.cy.js",
+      "file": "cypress/e2e/api-test.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "81209345-f757-4193-a2ef-2863cc4aae9c",
+          "title": "Pruebas de API",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Debería iniciar sesión usando API y verificar los productos",
+              "fullTitle": "Pruebas de API Debería iniciar sesión usando API y verificar los productos",
+              "timedOut": null,
+              "duration": 5218,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// 1. Usa el comando de login por API para saltarte la interfaz de usuario\ncy.apiLogin('standard_user');\n// 2. Verifica que la URL es la correcta y que un elemento de la página es visible\ncy.url().should('include', '/inventory.html');\n_InventoryPage.default.getShoppingCartBadge().should('not.exist'); // No debería haber productos en el carrito\n// 3. Ahora que estás logueado, puedes continuar con cualquier otra prueba\n// Por ejemplo, agregar un producto al carrito\nconst productName = 'sauce-labs-backpack';\n_InventoryPage.default.addProductToCart(productName);\n_InventoryPage.default.getShoppingCartBadge().should('have.text', '1');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected 'about:blank' to include '/inventory.html'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected 'about:blank' to include '/inventory.html'\n    at Context.eval (webpack://cypress-e-commerce/./cypress/e2e/api-test.cy.js:11:13)",
+                "diff": null
+              },
+              "uuid": "85cb1ad2-95bd-482d-bd70-969ec8a9686d",
+              "parentUUID": "81209345-f757-4193-a2ef-2863cc4aae9c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "85cb1ad2-95bd-482d-bd70-969ec8a9686d"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 5218,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

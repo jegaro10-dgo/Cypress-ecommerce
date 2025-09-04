@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-09-03T23:45:42.289Z",
+    "end": "2025-09-03T23:45:43.271Z",
+    "duration": 982,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "bfae680e-ca63-4b0b-9736-a4b472f0b1ef",
+      "title": "",
+      "fullFile": "cypress/e2e/api-test.cy.js",
+      "file": "cypress/e2e/api-test.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4569f421-3390-476b-8e75-347c0e3f444c",
+          "title": "Pruebas de API",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Debería iniciar sesión usando API y verificar los productos",
+              "fullTitle": "Pruebas de API Debería iniciar sesión usando API y verificar los productos",
+              "timedOut": null,
+              "duration": 936,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// 1. Usa el comando de login por API para saltarte la interfaz de usuario\ncy.apiLogin('standard_user');\n// 2. Verifica que la URL es la correcta y que un elemento de la página es visible\ncy.url().should('include', '/inventory.html');\n_InventoryPage.default.getShoppingCartBadge().should('not.exist'); // No debería haber productos en el carrito\n// 3. Ahora que estás logueado, puedes continuar con cualquier otra prueba\n// Por ejemplo, agregar un producto al carrito\nconst productName = 'sauce-labs-backpack';\n_InventoryPage.default.addProductToCart(productName);\n_InventoryPage.default.getShoppingCartBadge().should('have.text', '1');",
+              "err": {
+                "message": "CypressError: `cy.visit()` failed trying to load:\n\nhttps://www.saucedemo.com/inventory.html\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\nThis error occurred while creating the session. Because the session setup failed, we failed the test.",
+                "estack": "CypressError: `cy.visit()` failed trying to load:\n\nhttps://www.saucedemo.com/inventory.html\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\nThis error occurred while creating the session. Because the session setup failed, we failed the test.\n    at <unknown> (http://localhost:50129/__cypress/runner/cypress_runner.js:134966:76)\n    at visitFailedByErr (http://localhost:50129/__cypress/runner/cypress_runner.js:134536:12)\n    at <unknown> (http://localhost:50129/__cypress/runner/cypress_runner.js:134949:13)\n    at tryCatcher (http://localhost:50129/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:50129/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:50129/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:50129/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:50129/__cypress/runner/cypress_runner.js:1667:18)\n    at _drainQueueStep (http://localhost:50129/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:50129/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:50129/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:50129/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Object.eval [as setup] (webpack://cypress-e-commerce/./cypress/support/commands.js:42:11)\n    at Context.<anonymous> (http://localhost:50129/__cypress/runner/cypress_runner.js:136486:38)\n    at getRet (http://localhost:50129/__cypress/runner/cypress_runner.js:121549:20)\n    at tryCatcher (http://localhost:50129/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:50129/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (http://localhost:50129/__cypress/runner/cypress_runner.js:121560:66)\n    at Context.then (http://localhost:50129/__cypress/runner/cypress_runner.js:121811:21)\n    at wrapped (http://localhost:50129/__cypress/runner/cypress_runner.js:141517:19)",
+                "diff": null
+              },
+              "uuid": "646df116-6154-4546-9b55-1b39846f6b5f",
+              "parentUUID": "4569f421-3390-476b-8e75-347c0e3f444c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "646df116-6154-4546-9b55-1b39846f6b5f"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 936,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

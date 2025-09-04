@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-09-03T19:02:11.038Z",
+    "end": "2025-09-03T19:02:15.999Z",
+    "duration": 4961,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f5301437-efa7-4319-8eed-3723ba6b45f5",
+      "title": "",
+      "fullFile": "cypress/e2e/carrito.cy.js",
+      "file": "cypress/e2e/carrito.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e89ad049-e35e-481b-8aab-656c280289d5",
+          "title": "Flujo de compra en Saucedemo",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Debería agregar un producto al carrito y verificar que se muestra el conteo correcto",
+              "fullTitle": "Flujo de compra en Saucedemo Debería agregar un producto al carrito y verificar que se muestra el conteo correcto",
+              "timedOut": null,
+              "duration": 3027,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// 1. Encuentra el botón del primer producto y haz clic en él.\n// Usamos el ID para ser precisos.\ncy.get('#add-to-cart-sauce-labs-backpack').click();\n// 2. Verifica el conteo del ícono del carrito.\n// El ícono debe mostrar un \"1\" para indicar un producto.\ncy.get('.shopping_cart_badge').should('have.text', '1');\n// 3. Haz clic en el ícono del carrito para ir a la página de checkout.\ncy.get('.shopping_cart_link').click();\n// 4. Verifica que la página del carrito se cargó correctamente.\n// El título de la página debe ser \"Your Cart\".\ncy.get('.title').should('have.text', 'Your Cart');\n// 5. Verifica que el producto que agregaste está en la lista.\n// El nombre del producto debe estar visible.\ncy.get('.inventory_item_name').should('have.text', 'Sauce Labs Backpack');",
+              "err": {},
+              "uuid": "2311e0ec-8b00-4bf1-a832-47ecd80fd709",
+              "parentUUID": "e89ad049-e35e-481b-8aab-656c280289d5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2311e0ec-8b00-4bf1-a832-47ecd80fd709"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3027,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

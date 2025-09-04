@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-09-03T19:33:37.289Z",
+    "end": "2025-09-03T19:33:41.735Z",
+    "duration": 4446,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "3990ec9a-cbe4-4b9e-a183-7499e7c236b4",
+      "title": "",
+      "fullFile": "cypress/e2e/login.cy.js",
+      "file": "cypress/e2e/login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5b66ce4e-61f4-4e05-a1cb-33c59e417e41",
+          "title": "Login en el sitio de e-commerce",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Debería permitir a un usuario iniciar sesión exitosamente",
+              "fullTitle": "Login en el sitio de e-commerce Debería permitir a un usuario iniciar sesión exitosamente",
+              "timedOut": null,
+              "duration": 1344,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// 1. Visita la página de inicio de sesión\ncy.login('standard_user', 'secret_sauce');\n// 4. Verifica que el inicio de sesión fue exitoso\n// La URL debe cambiar a la página de inventario\ncy.url().should('include', '/inventory.html');\n// También puedes verificar la presencia de un elemento en la nueva página\ncy.get('.shopping_cart_link').should('be.visible');",
+              "err": {},
+              "uuid": "df363390-d45b-4658-971f-2f4f73c86183",
+              "parentUUID": "5b66ce4e-61f4-4e05-a1cb-33c59e417e41",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Debería mostrar un mensaje de error para un usuario bloqueado",
+              "fullTitle": "Login en el sitio de e-commerce Debería mostrar un mensaje de error para un usuario bloqueado",
+              "timedOut": null,
+              "duration": 1103,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Usamos el comando personalizado para intentar el login\ncy.login('locked_out_user', 'secret_sauce');\n// Verificamos que la URL NO cambió\ncy.url().should('not.include', '/inventory.html');\n// Verificamos que el mensaje de error es visible y contiene el texto correcto\ncy.get('[data-test=\"error\"]').should('be.visible').and('contain', 'Epic sadface: Sorry, this user has been locked out.');",
+              "err": {},
+              "uuid": "a4fb2b1e-63fd-4702-9112-70b8567582db",
+              "parentUUID": "5b66ce4e-61f4-4e05-a1cb-33c59e417e41",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "df363390-d45b-4658-971f-2f4f73c86183",
+            "a4fb2b1e-63fd-4702-9112-70b8567582db"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2447,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

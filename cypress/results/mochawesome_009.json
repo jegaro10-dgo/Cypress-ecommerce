@@ -1,0 +1,132 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 0,
+    "pending": 0,
+    "failures": 2,
+    "start": "2025-09-03T22:55:22.771Z",
+    "end": "2025-09-03T22:55:31.413Z",
+    "duration": 8642,
+    "testsRegistered": 2,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "dd0fe5f5-4558-4d52-ad41-029fb410a96c",
+      "title": "",
+      "fullFile": "cypress/e2e/login.cy.js",
+      "file": "cypress/e2e/login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "69fb3d6e-969e-458b-8bde-875bec25fcdc",
+          "title": "Login en el sitio de e-commerce",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Debería permitir a un usuario iniciar sesión exitosamente",
+              "fullTitle": "Login en el sitio de e-commerce Debería permitir a un usuario iniciar sesión exitosamente",
+              "timedOut": null,
+              "duration": 6036,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// 1. Visita la página de inicio de sesión\ncy.visit('https://www.saucedemo.com/');\n_LoginPage.default.login('standard_user', 'secret_sauce');\n// 4. Verifica que el inicio de sesión fue exitoso\n// La URL debe cambiar a la página de inventario\ncy.url().should('include', '/inventory.html');\n// También puedes verificar la presencia de un elemento en la nueva página\ncy.get('.shopping_cart_link').should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[data-test=\"logon-button\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[data-test=\"logon-button\"]`, but never found it.\n    at LoginPage.getLoginButton (webpack://cypress-e-commerce/./cypress/pages/LoginPage.js:10:18)\n    at LoginPage.login (webpack://cypress-e-commerce/./cypress/pages/LoginPage.js:19:13)\n    at Context.eval (webpack://cypress-e-commerce/./cypress/e2e/login.cy.js:10:14)",
+                "diff": null
+              },
+              "uuid": "8f84d80f-4bca-4511-9299-b044d5c65a7c",
+              "parentUUID": "69fb3d6e-969e-458b-8bde-875bec25fcdc",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Debería mostrar un mensaje de error para un usuario bloqueado",
+              "fullTitle": "Login en el sitio de e-commerce Debería mostrar un mensaje de error para un usuario bloqueado",
+              "timedOut": null,
+              "duration": 615,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://www.saucedemo.com/');\n// Usamos el comando personalizado para intentar el login\nlogin.LoginPage.login('locked_out_user', 'secret_sauce');\n// Verificamos que el mensaje de error es visible y contiene el texto correcto\n_LoginPage.default.getErrorMessage().should('be.visible').and('contain', 'Epic sadface: Sorry, this user has been locked out.');",
+              "err": {
+                "message": "ReferenceError: login is not defined",
+                "estack": "ReferenceError: login is not defined\n    at Context.eval (webpack://cypress-e-commerce/./cypress/e2e/login.cy.js:22:4)\n    at runnable.fn (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:141784:19)\n    at callFn (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:160853:21)\n    at Runnable.run (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:160840:7)\n    at <unknown> (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:166935:30)\n    at PassThroughHandlerContext.finallyHandler (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:4042:23)\n    at PassThroughHandlerContext.tryCatcher (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1546:18)",
+                "diff": null
+              },
+              "uuid": "367d09c2-da0d-4807-b46f-00dd2cd70b3d",
+              "parentUUID": "69fb3d6e-969e-458b-8bde-875bec25fcdc",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "8f84d80f-4bca-4511-9299-b044d5c65a7c",
+            "367d09c2-da0d-4807-b46f-00dd2cd70b3d"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 6651,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

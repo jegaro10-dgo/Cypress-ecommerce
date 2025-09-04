@@ -1,0 +1,129 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-09-03T23:06:58.264Z",
+    "end": "2025-09-03T23:07:02.600Z",
+    "duration": 4336,
+    "testsRegistered": 2,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 1,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "74b51aea-f9c4-46e2-952b-368836114367",
+      "title": "",
+      "fullFile": "cypress/e2e/carrito.cy.js",
+      "file": "cypress/e2e/carrito.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2c748775-9506-4ffb-9b0f-7a82ab3f5332",
+          "title": "Flujo de compra en Saucedemo",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Debería agregar un producto al carrito y verificar que se muestra el conteo correcto",
+              "fullTitle": "Flujo de compra en Saucedemo Debería agregar un producto al carrito y verificar que se muestra el conteo correcto",
+              "timedOut": null,
+              "duration": 4287,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const productName = 'sauce-labs-backpack';\n_InventoryPage.default.addProductToCart(productName);\n// 2. Verifica el conteo del ícono del carrito.\n// El ícono debe mostrar un \"1\" para indicar un producto.\n_InventoryPage.default.getShoppingCartBadge().should('have.text', '1');\n// 3. Haz clic en el ícono del carrito para ir a la página de checkout.\n_InventoryPage.default.getShoppingCartLink().click();\n// 4. Verifica que la página del carrito se cargó correctamente.\n// El título de la página debe ser \"Your Cart\".\n_CartPage.default.getCartTitle().should('have.text', 'Your Cart');\n// 5. Verifica que el producto que agregaste está en la lista.\n// El nombre del producto debe estar visible.\n_CartPage.default.getCartItem().should('contain.text', 'Sauce Labs Backpack');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[data-test=\"username\"]`, but never found it.\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Flujo de compra en Saucedemo`",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[data-test=\"username\"]`, but never found it.\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Flujo de compra en Saucedemo`\n    at LoginPage.getUsernameInput (webpack://cypress-e-commerce/./cypress/pages/LoginPage.js:4:18)\n    at LoginPage.login (webpack://cypress-e-commerce/./cypress/pages/LoginPage.js:17:13)\n    at Context.eval (webpack://cypress-e-commerce/./cypress/e2e/carrito.cy.js:11:14)",
+                "diff": null
+              },
+              "uuid": "ed074a4e-fa31-4a03-85dd-678931f9d225",
+              "parentUUID": "2c748775-9506-4ffb-9b0f-7a82ab3f5332",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Debería eliminar un producto del carrito y verificar que el carrito esta vacío",
+              "fullTitle": "Flujo de compra en Saucedemo Debería eliminar un producto del carrito y verificar que el carrito esta vacío",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const productName = 'sauce-labs-backpack';\n// 1. Agrega el producto al carrito. Reutilizamos esta línea del caso de prueba anterior.\n_InventoryPage.default.addProductToCart(productName);\n// 2. Navega a la página del carrito.\n_InventoryPage.default.getShoppingCartLink().click();\n// 3. Eliminamos el producto del carrito\n_CartPage.default.removeItemFromCart(productName);\n// 4. Verificar que el producto ya no está en el carrito\n// usamos el comando \"should('not.exist')\" para asegurar que el elemento ya no existe en el DOM\n_InventoryPage.default.getShoppingCartBadge().should('not.exist');\n// 5. Verifica que el incono del carrito ya no tiene el badge de conteo\n// para esto usamos \"should('not.exist')\" en el elemento del conteo\n_CartPage.default.getCartItem().should('not.exist');",
+              "err": {},
+              "uuid": "25d492e0-b442-4994-b7d4-606937b2e5f1",
+              "parentUUID": "2c748775-9506-4ffb-9b0f-7a82ab3f5332",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "ed074a4e-fa31-4a03-85dd-678931f9d225"
+          ],
+          "pending": [],
+          "skipped": [
+            "25d492e0-b442-4994-b7d4-606937b2e5f1"
+          ],
+          "duration": 4287,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

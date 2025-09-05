@@ -31,6 +31,8 @@ describe('registro de usuario en Demo Web Shop', () =>{
         cy.get('#Password').type(randomPassword);
         // Confirmar el password
         cy.get('#ConfirmPassword').type(randomPassword);
+        // realizar captura de pantalla
+        cy.screenshot('registro.cy.js/Formulario-completo-1');
 
         // 4. Hacer click en el botón de registro
         cy.get('#register-button').click();

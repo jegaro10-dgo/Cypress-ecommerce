@@ -1,0 +1,121 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-09-04T23:03:36.780Z",
+    "end": "2025-09-04T23:03:47.866Z",
+    "duration": 11086,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7a94e16d-ed75-4244-90a5-5163b44b23d7",
+      "title": "",
+      "fullFile": "cypress/e2e/sort.cy.js",
+      "file": "cypress/e2e/sort.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "3fbb119f-05bd-4d3f-a456-b350b7b4a652",
+          "title": "Funcionalidad de ordenamiento de productos",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Debería ordenar los productos por precio de bajo a alto y de alto a bajo",
+              "fullTitle": "Funcionalidad de ordenamiento de productos Debería ordenar los productos por precio de bajo a alto y de alto a bajo",
+              "timedOut": null,
+              "duration": 4978,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Ordenamiento por precio de bajo a alto\n_InventoryPage.default.sortProducts('lohi');\n_InventoryPage.default.getProductPrices().then($prices => {\n  const prices = $prices.map((index, el) => Cypress.$(el).text().replace('$', '')).get();\n  const sortedPrices = [...prices].sort((a, b) => a - b);\n  expect(prices).to.deep.equal(sortedPrices);\n});\n// Ordenamiento por precio de alto a bajo y viceverza\n_InventoryPage.default.sortProducts('hilo');\n_InventoryPage.default.getProductPrices().then($prices => {\n  const prices = $prices.map((index, el) => Cypress.$(el).text().replace('$', '')).get();\n  const sortedPrices = [...prices].sort((a, b) => b - a);\n  expect(prices).to.deep.equal(sortedPrices);\n});\ncy.screenshot('ordenar-productos-por-precio');",
+              "err": {},
+              "uuid": "3ee3712f-552e-44b1-a22d-85b1d165c673",
+              "parentUUID": "3fbb119f-05bd-4d3f-a456-b350b7b4a652",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Debería ordenar los productos por nombre de A-Z y Z-A",
+              "fullTitle": "Funcionalidad de ordenamiento de productos Debería ordenar los productos por nombre de A-Z y Z-A",
+              "timedOut": null,
+              "duration": 4248,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Ordenamiento por nombre de A a Z\n_InventoryPage.default.sortProducts('az');\ncheckOrder('ascendente', _InventoryPage.default);\n// Ordenamiento por nombre de Z a A\n_InventoryPage.default.sortProducts('za');\ncheckOrder('descendente', _InventoryPage.default);\ncy.screenshot('ordenar-productos-por-nombre');",
+              "err": {},
+              "uuid": "b5a79f02-9378-462e-bd7a-b2bd0d72a516",
+              "parentUUID": "3fbb119f-05bd-4d3f-a456-b350b7b4a652",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3ee3712f-552e-44b1-a22d-85b1d165c673",
+            "b5a79f02-9378-462e-bd7a-b2bd0d72a516"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9226,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

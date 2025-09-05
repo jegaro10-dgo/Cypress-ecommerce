@@ -1,13 +1,16 @@
 const { defineConfig } = require("cypress");
-const allureWriter = require('@shelex/cypress-allure-plugin/writer');
+const allureWriter = require("@shelex/cypress-allure-plugin/writer");
+const fs = require('fs');
 
 module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
-      // Implementa los 'event listeners' de Node aquí
+      on('task', {
+        fileExists(path) {
+          return fs.existsSync(path);
+        }
+      });
       allureWriter(on, config);
-
-      // La función debe retornar la configuración al final
       return config;
     },
   },

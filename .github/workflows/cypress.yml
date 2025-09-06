@@ -5,6 +5,10 @@ on: [push]
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
+    strategy:
+      # Esta matriz crea un job para cada navegador
+      matrix:
+        browser: [chrome, firefox, edge]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -12,5 +16,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run Cypress tests
-        run: npx cypress run
+      - name: Run Cypress tests on ${{ matrix.browser }}
+        uses: cypress-io/github-action@v2
+        with:
+          # Aquí usamos la variable de la matriz para especificar el navegador
+          browser: ${{ matrix.browser }}
+          # El comando de Cypress no es necesario, el action lo ejecuta por ti

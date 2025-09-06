@@ -17,7 +17,7 @@ jobs:
         run: npm install
 
       - name: Run Cypress tests on ${{ matrix.browser }}
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v4
         with:
           # Aquí usamos la variable de la matriz para especificar el navegador
           browser: ${{ matrix.browser }}
